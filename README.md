@@ -1,5 +1,7 @@
 # Google Analytics 4
 
+**This is not an officially supported Google product** 
+
 ## What does this Looker Block do for me?
 
 This block allows GA4 users to continue to view the dashboards and metrics that they are familiar with from GA360.
