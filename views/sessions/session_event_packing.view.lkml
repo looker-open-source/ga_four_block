@@ -7,7 +7,8 @@ include: "/views/sessions/*.view.lkml"
 ############################
 view: session_event_packing {
   derived_table:{
-    sql_trigger_value: ${session_facts.SQL_TABLE_NAME} ;;
+    # sql_trigger_value: ${session_facts.SQL_TABLE_NAME} ;;
+    datagroup_trigger: ga4_main_datagroup
     partition_keys: ["session_date"]
     cluster_keys: ["sl_key","user_pseudo_id","session_date"]
     increment_key: "session_date"

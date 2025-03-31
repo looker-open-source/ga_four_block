@@ -8,7 +8,8 @@ include: "/views/sessions/*.view.lkml"
 view: session_facts{
   derived_table: {
    #datagroup_trigger: ga4_main_datagroup
-  sql_trigger_value: ${session_tags.SQL_TABLE_NAME} ;;
+  # sql_trigger_value: ${session_tags.SQL_TABLE_NAME} ;;
+    datagroup_trigger: ga4_main_datagroup
     sql: select sl.sl_key as sl_key
       ,  COUNT(sl.event_timestamp) session_event_count
       ,  SUM(case when sl.event_name = 'page_view' then 1 else 0 end) session_page_view_count
