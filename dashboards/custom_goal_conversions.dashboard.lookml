@@ -1,4 +1,4 @@
-- dashboard: custom_goal_conversions_test
+- dashboard: custom_goal_conversions
   title: "[GA4] Custom Goal Conversions"
   layout: newspaper
   preferred_viewer: dashboards-next

@@ -1,4 +1,4 @@
-- dashboard: audience_test
+- dashboard: audience
   title: "[GA4] Audience"
   layout: newspaper
   preferred_viewer: dashboards-next

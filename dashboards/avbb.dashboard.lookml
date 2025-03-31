@@ -1,5 +1,5 @@
 ---
-- dashboard: avbb_test
+- dashboard: avbb
   title: "[GA4] AVBB Model"
   layout: newspaper
   preferred_viewer: dashboards-next

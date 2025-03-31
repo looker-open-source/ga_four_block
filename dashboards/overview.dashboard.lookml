@@ -1,4 +1,4 @@
-- dashboard: overview_test
+- dashboard: overview
   title: "[GA4] Overview"
   layout: newspaper
   preferred_viewer: dashboards-next
