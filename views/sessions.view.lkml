@@ -5,7 +5,6 @@ include: "/views/bqml/*/*.view"
 
 view: sessions {
   derived_table: {
-    # sql_trigger_value: ${device_geo.SQL_TABLE_NAME} ;;
     datagroup_trigger: ga4_main_datagroup
     partition_keys: ["session_date"]
     cluster_keys: ["session_date"]

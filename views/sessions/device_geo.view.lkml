@@ -1,7 +1,6 @@
 include: "/views/sessions/*.view.lkml"
 view: device_geo{
   derived_table:{
-    # sql_trigger_value: ${session_event_packing.SQL_TABLE_NAME} ;;
     datagroup_trigger: ga4_main_datagroup
     sql:select sl.sl_key
       ,  sl.device.category device__category
