@@ -1,5 +1,7 @@
 # Google Analytics 4
 
+This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
+
 **This is not an officially supported Google product** 
 
 ## What does this Looker Block do for me?
@@ -12,7 +14,6 @@ In order to mirror a lot of the high level dashboards you see in your existing G
 - Retention Cohort Analysis capabilities (audience_cohorts.view)
 - Looker dimension for every combination of \_event\_name\_ / \_event\_params.key\_ and \_user_properties_ (event\_data\_dimensions folder) for the automatically collected data.
 - A Propensity Model written in BigQuery ML for getting predictive analytics on your customers.
-
 
 GA4 data is exported in the format of a single flat table with a new entry for each event
 This is is similar to Google's Firebase output and can be difficult to query due to date-based partitioned tables and a need for unnesting in all but the most high-level queries.
@@ -190,7 +191,6 @@ As the event data is a representation of the original source rows from your even
 The definition for a repeating key/value field uses the following format:
 (SELECT value.*value_type* FROM UNNEST(*nested_field*) WHERE key = "*key_value*")
 
-
 Here is an example of LookML used to define a nested dimension.
 dimension: event_param_all_data {
   group_label: "Event: Parameters"
@@ -214,7 +214,6 @@ This is desired on some data, such as the nested ITEMS records. In the case of I
 Each event parameter you enable on GA4 will need to have a new dimension and any applicable measures created. The dimensions included in this block correspond to the list of automatically tracked events listed here https://support.google.com/analytics/answer/9234069?hl=en.
 
 If you are initiating the block with a large amount of custom event parameters already in place, it may be beneficial to obtain a list of them along with the value types that are populated:
-
 
 Sample Query for obtaining a list of all event parameter keys and their respective values:
 
