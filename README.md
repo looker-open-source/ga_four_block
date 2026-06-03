@@ -2,8 +2,6 @@
 
 This is not an officially supported Google product. This project is not eligible for the [Google Open Source Software Vulnerability Rewards Program](https://bughunters.google.com/open-source-security).
 
-**This is not an officially supported Google product** 
-
 ## What does this Looker Block do for me?
 
 This block allows GA4 users to continue to view the dashboards and metrics that they are familiar with from GA360.
