@@ -2,7 +2,7 @@
   "label": "Google Analytics 4 - Web Analytics",
   "category_label": "Models",
   "branding": {
-    "image_uri": "https://marketplace-api.looker.com/block-icons/icon-google-analytics-new.png",
+    "image_uri": "https://static-a.cdn.looker.app/marketplace/block-icons/icon-google-analytics-new.png",
     "tagline": "Analyze and activate web-traffic data in BigQuery from GA4."
   },
   "constants": {
