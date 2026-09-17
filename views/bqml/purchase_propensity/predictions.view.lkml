@@ -6,7 +6,7 @@ include: "/views/sessions/*.view"
 
 view: future_purchase_model {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_input.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END  ;;
+    datagroup_trigger: bqml_datagroup
     sql_create:
       CREATE OR REPLACE MODEL ${SQL_TABLE_NAME}
       OPTIONS(
@@ -41,7 +41,7 @@ explore: feature_importance {hidden:yes}
 # VIEWS:
 view: future_purchase_model_evaluation {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END ;;
+    datagroup_trigger: bqml_datagroup
     sql:
           SELECT * FROM ml.EVALUATE(
           MODEL ${future_purchase_model.SQL_TABLE_NAME},
@@ -57,7 +57,7 @@ view: future_purchase_model_evaluation {
 
 view: roc_curve {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END  ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     SELECT * FROM ml.ROC_CURVE(
         MODEL ${future_purchase_model.SQL_TABLE_NAME},
@@ -104,7 +104,7 @@ view: roc_curve {
 
 view: confusion_matrix {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     SELECT Expected_label,_0 as Predicted_0,_1 as Predicted_1  FROM ml.confusion_matrix(
         MODEL ${future_purchase_model.SQL_TABLE_NAME},
@@ -117,7 +117,7 @@ view: confusion_matrix {
 
 view: future_purchase_model_training_info {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END  ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     SELECT  * FROM ml.TRAINING_INFO(MODEL ${future_purchase_model.SQL_TABLE_NAME});;
   }
@@ -151,7 +151,7 @@ view: future_purchase_model_training_info {
 
 view: feature_importance {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END  ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     SELECT
       *
@@ -166,7 +166,7 @@ view: feature_importance {
 explore:  future_purchase_prediction {hidden:yes}
 view: future_purchase_prediction {
   derived_table: {
-    sql_trigger_value: CASE WHEN "@{BQML_PARAMETER}"='Yes' AND ${future_purchase_model.SQL_TABLE_NAME} THEN TRUE ELSE FALSE END ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     select
           pred.*,

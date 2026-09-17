@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.6](https://github.com/looker-open-source/ga_four_block/compare/v3.0.5...v3.0.6) (2026-09-17)
+
+
+### Bug Fixes
+
+* replace `sql_trigger_value` with `datagroup_trigger: bqml_datagroup` across all 20 cascading BQML PDT views and add `BQML_PARAMETER` conditional gating in `attributes/datagroups.lkml`
+
 ## [3.0.3](https://github.com/looker-open-source/ga_four_block/compare/3.0.2...v3.0.3) (2024-10-23)
 
 
