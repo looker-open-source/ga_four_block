@@ -2,7 +2,7 @@ include: "/views/sessions/*.view.lkml"
 include: "/views/*/*.view.lkml"
 view: training_data_avbb {
   derived_table: {
-    sql_trigger_value: ${forecasting.SQL_TABLE_NAME} ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     SELECT sessions.sl_key,
     session_attribution.source,
@@ -27,7 +27,7 @@ view: training_data_avbb {
 
 view: avbb_model {
   derived_table: {
-    sql_trigger_value: ${training_data_avbb.SQL_TABLE_NAME}  ;;
+    datagroup_trigger: bqml_datagroup
     sql_create: CREATE OR REPLACE MODEL ${SQL_TABLE_NAME}
 OPTIONS
   ( MODEL_TYPE='LINEAR_REG',
@@ -51,7 +51,7 @@ OPTIONS
 
 view: model_explanation {
   derived_table: {
-    sql_trigger_value: ${training_data_avbb.SQL_TABLE_NAME} ;;
+    datagroup_trigger: bqml_datagroup
     sql: SELECT * FROM
     ML.GLOBAL_EXPLAIN(MODEL ${avbb_model.SQL_TABLE_NAME}) ;;
   }
@@ -71,8 +71,7 @@ explore: model_explanation {
 
 view: category_attribution {
   derived_table: {
-
-    sql_trigger_value: ${model_explanation.SQL_TABLE_NAME} ;;
+    datagroup_trigger: bqml_datagroup
     sql: SELECT * FROM ML.ADVANCED_WEIGHTS(
   MODEL ${avbb_model.SQL_TABLE_NAME},
   STRUCT(TRUE AS standardize))
@@ -107,7 +106,7 @@ explore: category_attribution {
 
 view: evaluation {
   derived_table: {
-    sql_trigger_value: ${category_attribution.SQL_TABLE_NAME} ;;
+    datagroup_trigger: bqml_datagroup
     sql: SELECT * FROM  ML.EVALUATE(MODEL ${avbb_model.SQL_TABLE_NAME});;
   }
   dimension: MAE {

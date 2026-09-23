@@ -3,8 +3,7 @@ include: "/views/*/*.view.lkml"
 view: training_input {
   derived_table: {
 
-    #datagroup_trigger: bqml_datagroup
-    sql_trigger_value: ${sessions.SQL_TABLE_NAME} ;;
+    datagroup_trigger: bqml_datagroup
     sql:
     WITH
       visitors_labeled AS (
