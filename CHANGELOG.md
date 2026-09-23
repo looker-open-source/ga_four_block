@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.6](https://github.com/looker-open-source/ga_four_block/compare/v3.0.5...v3.0.6) (2026-09-23)
+
+
+### Bug Fixes
+
+* **bqml:** align cascading PDTs with bqml_datagroup and handle BQML_PARAMETER toggle ([#34](https://github.com/looker-open-source/ga_four_block/issues/34)) ([cdb8f9f](https://github.com/looker-open-source/ga_four_block/commit/cdb8f9ff5bee365c285ec71a978ae606cc8e61c7))
+
 ## [3.0.6](https://github.com/looker-open-source/ga_four_block/compare/v3.0.5...v3.0.6) (2026-09-17)
 
 
